@@ -19,6 +19,7 @@ function addMovie(e) {
 
     if (title === "" || director === "" || url === "") {
         // Error
+        ui.displayMessages("Inputs cannot be empty!", "danger");
     } else {
         // New movie
         const newMovie = new Movie(title, director, url);
