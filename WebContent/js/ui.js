@@ -45,3 +45,7 @@ UI.prototype.displayMessages = function (message, type) {
     // setTimeout -> delete appended div after 1 second.
     setTimeout(() => div.remove(), 1000);
 }
+
+UI.prototype.loadAllMovies = function (movies) {
+    movies.forEach((movie) => this.addMovieToUI(movie));
+}
