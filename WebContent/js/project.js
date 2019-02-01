@@ -35,17 +35,21 @@ function addMovie(e) {
         // New movie
         const newMovie = new Movie(title, director, url);
 
-        // Add Movie to UI
-        ui.addMovieToUI(newMovie);
+        // Check movie equality
+        if (!storage.checkMovieEquality(newMovie)){
+            // Add Movie to UI
+            ui.addMovieToUI(newMovie);
 
-        // Clear all inputs
-        ui.clearInputs(titleElement, directorElement, urlElement);
+            // Clear all inputs
+            ui.clearInputs(titleElement, directorElement, urlElement);
 
-        // Add Movie to LocalStorage
-        storage.addMovieToLocalStorage(newMovie);
+            // Add Movie to LocalStorage
+            storage.addMovieToLocalStorage(newMovie);
 
-        // Show Success message
-        ui.displayMessages("Movie has been added!", "success");
+            // Show Success message
+            ui.displayMessages("Movie has been added!", "success");
+        } else
+            ui.displayMessages("Movie name must be unique!", "danger");
     }
 
 
@@ -66,6 +70,8 @@ function deleteMovie(e) {
 }
 
 function clearAllMovies() {
-    ui.clearMoviesFromUI();
-    storage.clearAllMoviesFromLocalStorage();
+    if (confirm("Would you like to delete all movies?")){
+        ui.clearMoviesFromUI();
+        storage.clearAllMoviesFromLocalStorage();
+    }
 }
