@@ -3,6 +3,7 @@ const titleElement = document.getElementById("title");
 const directorElement = document.getElementById("director");
 const urlElement = document.getElementById("url");
 const cardBody = document.querySelectorAll(".card-body")[1];
+const clearMovies = document.querySelector("#clear-films");
 
 // Init UI Object
 const ui = new UI();
@@ -19,6 +20,7 @@ function eventListeners() {
        ui.loadAllMovies(movies);
     });
     cardBody.addEventListener("click", deleteMovie);
+    clearMovies.addEventListener("click", clearAllMovies);
 }
 
 function addMovie(e) {
@@ -61,4 +63,9 @@ function deleteMovie(e) {
 
     }
 
+}
+
+function clearAllMovies() {
+    ui.clearMoviesFromUI();
+    storage.clearAllMoviesFromLocalStorage();
 }
