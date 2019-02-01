@@ -53,3 +53,12 @@ UI.prototype.loadAllMovies = function (movies) {
 UI.prototype.deleteMovieFromUI = function (e) {
     e.parentElement.parentElement.remove();
 }
+
+UI.prototype.clearMoviesFromUI = function () {
+    const movies = document.querySelector("#films");
+
+    // movies.innerHTML = "";   // slow
+    while (movies.firstElementChild !== null) {
+        movies.firstElementChild.remove();
+    }
+}
