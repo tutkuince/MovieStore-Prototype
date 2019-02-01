@@ -54,7 +54,11 @@ function addMovie(e) {
 function deleteMovie(e) {
     if (e.target.id === "delete-film"){
         ui.deleteMovieFromUI(e.target);
-        storage.deleteMovieFromLocalStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+        const title = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+        storage.deleteMovieFromLocalStorage(title);
+
+        ui.displayMessages(`${title} has been deleted!`, "success");
+
     }
 
 }
