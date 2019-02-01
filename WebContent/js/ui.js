@@ -49,3 +49,7 @@ UI.prototype.displayMessages = function (message, type) {
 UI.prototype.loadAllMovies = function (movies) {
     movies.forEach((movie) => this.addMovieToUI(movie));
 }
+
+UI.prototype.deleteMovieFromUI = function (e) {
+    e.parentElement.parentElement.remove();
+}
