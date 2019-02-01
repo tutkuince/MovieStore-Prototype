@@ -26,6 +26,8 @@ function addMovie(e) {
 
         ui.addMovieToUI(newMovie);
         ui.clearInputs(titleElement, directorElement, urlElement);
+
+        ui.displayMessages("Movie has been added!", "success");
     }
 
 
