@@ -24,6 +24,7 @@ function addMovie(e) {
         const newMovie = new Movie(title, director, url);
 
         ui.addMovieToUI(newMovie);
+        ui.clearInputs(titleElement, directorElement, urlElement);
     }
 
 
