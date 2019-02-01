@@ -34,3 +34,15 @@ Storage.prototype.deleteMovieFromLocalStorage = function (title) {
 Storage.prototype.clearAllMoviesFromLocalStorage = function () {
     localStorage.removeItem("movies");
 }
+
+Storage.prototype.checkMovieEquality = function (newMovie) {
+    let movies = this.getMoviesFromLocalStorage();
+    let result;
+    
+    movies.forEach(movie => {
+        if (movie.title === newMovie.title)
+            result = true;
+    });
+
+    return result;
+}
