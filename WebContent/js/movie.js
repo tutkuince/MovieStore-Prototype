@@ -1,6 +1,6 @@
 // Movie Class
 function Movie(title, director, link) {
     this.title = title;
-    this.direction = director;
+    this.director = director;
     this.link = link;
 }
