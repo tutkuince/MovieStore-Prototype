@@ -29,3 +29,19 @@ UI.prototype.clearInputs = function (e1, e2, e3) {
     e3.value = "";
     e1.focus();
 }
+
+UI.prototype.displayMessages = function (message, type) {
+    // Select div
+    const cardBody = document.querySelector(".card-body");
+
+    // Create div element
+    const div = document.createElement("div");
+    div.className = `alert alert-${type}`;
+    div.textContent = message;
+
+    // append div to element to card-body
+    cardBody.appendChild(div);
+
+    // setTimeout -> delete appended div after 1 second.
+    setTimeout(() => div.remove(), 1000);
+}
