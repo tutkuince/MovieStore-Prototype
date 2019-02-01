@@ -2,6 +2,7 @@ const form = document.querySelector("#film-form");
 const titleElement = document.getElementById("title");
 const directorElement = document.getElementById("director");
 const urlElement = document.getElementById("url");
+const cardBody = document.querySelectorAll(".card-body")[1];
 
 // Init UI Object
 const ui = new UI();
@@ -17,6 +18,7 @@ function eventListeners() {
        let movies = storage.getMoviesFromLocalStorage();
        ui.loadAllMovies(movies);
     });
+    cardBody.addEventListener("click", deleteMovie);
 }
 
 function addMovie(e) {
@@ -47,4 +49,12 @@ function addMovie(e) {
 
     // Prevent Submit
     e.preventDefault();
+}
+
+function deleteMovie(e) {
+    if (e.target.id === "delete-film"){
+        ui.deleteMovieFromUI(e.target);
+        storage.deleteMovieFromLocalStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+    }
+
 }
